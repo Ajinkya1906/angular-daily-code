@@ -1,0 +1,215 @@
+<div class="dashboard" [class.sidebar-closed]="!sidebarOpen()">
+  <!-- Appears only after sidebar is closed -->
+  @if (!sidebarOpen()) {
+    <button
+      class="open-sidebar-button"
+      type="button"
+      (click)="openSidebar()"
+      aria-label="Open topic sidebar"
+      title="Open topics"
+    >
+      ☰
+    </button>
+  }
+
+  <!-- Header -->
+  <header class="topbar">
+    <div class="brand">
+      <strong>Angular Lab<span>.</span></strong>
+      <small>LEARN. BUILD. UNDERSTAND.</small>
+    </div>
+
+    <details class="appearance-menu">
+      <summary aria-label="Open appearance settings" title="Appearance settings">
+        ◐
+      </summary>
+
+      <section class="appearance-control" aria-label="Appearance settings">
+        <div class="appearance-heading">
+          <strong>Appearance</strong>
+
+          <button
+            class="mode-button"
+            type="button"
+            (click)="theme.toggle()"
+          >
+            {{ theme.isDark() ? 'Dark' : 'Light' }}
+          </button>
+        </div>
+
+        <div class="brightness-row">
+          <label for="brightness">Surface brightness</label>
+          <output for="brightness">{{ theme.brightness() }}%</output>
+        </div>
+
+        <input
+          #brightnessInput
+          id="brightness"
+          class="brightness-slider"
+          type="range"
+          min="0"
+          max="100"
+          [value]="theme.brightness()"
+          (input)="theme.setBrightness(brightnessInput.valueAsNumber)"
+        />
+
+        <div class="brightness-footer">
+          <span>Dimmer</span>
+          <span>Brighter</span>
+        </div>
+
+        <button
+          class="reset-button"
+          type="button"
+          (click)="theme.resetBrightness()"
+        >
+          Reset brightness
+        </button>
+      </section>
+    </details>
+  </header>
+
+  <!-- Sidebar -->
+  @if (sidebarOpen()) {
+    <aside id="topic-sidebar" class="sidebar">
+      <div class="sidebar-top">
+        <div>
+          <span class="eyebrow">LEARNING ROADMAP</span>
+          <h2>List of Topics</h2>
+          <p>Select a topic and start learning.</p>
+        </div>
+
+        <!-- Icon-only close button -->
+        <button
+          class="close-sidebar-button"
+          type="button"
+          (click)="closeSidebar()"
+          aria-label="Close topic sidebar"
+          title="Close topics"
+        >
+          ‹
+        </button>
+      </div>
+
+      <!-- Search -->
+      <div class="topic-search">
+        <div class="search-box">
+          <span aria-hidden="true">⌕</span>
+
+          <input
+            #searchInput
+            type="search"
+            placeholder="Find a topic..."
+            aria-label="Find a topic"
+            autocomplete="off"
+            [value]="search()"
+            (input)="search.set(searchInput.value)"
+          />
+
+          @if (search()) {
+            <button
+              type="button"
+              class="clear-search"
+              aria-label="Clear search"
+              title="Clear search"
+              (click)="search.set('')"
+            >
+              ×
+            </button>
+          }
+        </div>
+
+        <!-- Matching subtopic results -->
+        @if (search().trim()) {
+          <div class="search-results" role="listbox">
+            @for (lesson of searchResults(); track lesson.id) {
+              <button
+                type="button"
+                class="search-result"
+                [disabled]="!lesson.route"
+                (click)="selectLesson(lesson.route)"
+              >
+                <span class="search-result-icon" aria-hidden="true">↳</span>
+
+                <span class="search-result-content">
+                  <strong>{{ lesson.title }}</strong>
+                  <small>{{ lesson.topicTitle }}</small>
+                </span>
+
+                @if (lesson.route) {
+                  <span class="search-result-arrow" aria-hidden="true">›</span>
+                } @else {
+                  <small class="soon-label">Soon</small>
+                }
+              </button>
+            } @empty {
+              <p class="no-results">No matching subtopic found.</p>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Main topics and expandable subtopics -->
+      <nav class="topic-list" aria-label="Angular topics">
+        @for (topic of filteredTopics(); track topic.id) {
+          <section class="topic-group">
+            <button
+              class="topic-button"
+              type="button"
+              (click)="toggleTopic(topic.id)"
+              [attr.aria-expanded]="isTopicOpen(topic.id)"
+            >
+              <span class="topic-icon" aria-hidden="true">
+                {{ topic.symbol }}
+              </span>
+
+              <span class="topic-title">{{ topic.title }}</span>
+
+              <span class="lesson-count">
+                {{ topic.lessons.length }}
+              </span>
+
+              <span
+                class="topic-arrow"
+                [class.open]="isTopicOpen(topic.id)"
+                aria-hidden="true"
+              >
+                ›
+              </span>
+            </button>
+
+            @if (isTopicOpen(topic.id)) {
+              <div class="subtopic-list">
+                @for (lesson of topic.lessons; track lesson.id) {
+                  @if (lesson.route; as route) {
+                    <a
+                      [routerLink]="route"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                      (click)="closeSidebarOnMobile()"
+                    >
+                      <span class="lesson-dot" aria-hidden="true"></span>
+                      <span>{{ lesson.title }}</span>
+                    </a>
+                  } @else {
+                    <div class="coming-soon">
+                      <span>{{ lesson.title }}</span>
+                      <small>Soon</small>
+                    </div>
+                  }
+                }
+              </div>
+            }
+          </section>
+        } @empty {
+          <p class="empty-search">No topics found.</p>
+        }
+      </nav>
+    </aside>
+  }
+
+  <!-- Lesson component loads here -->
+  <main class="workspace">
+    <router-outlet />
+  </main>
+</div>
