@@ -13,6 +13,23 @@ export interface Topic {
 
 export const DASHBOARD_TOPICS: readonly Topic[] = [
   {
+    id: 'self-practice',
+    title: 'Self Practice',
+    symbol: '⌘',
+    lessons: [
+      {
+        id: 'data-binding-practice',
+        title: 'Data Binding Practice',
+        route: '/dashboard/self-practice/data-binding-practice',
+      },
+      {
+        id: 'directive-practice',
+        title: 'Directive Practice',
+        route: '/dashboard/self-practice/directive-practice',
+      },
+    ],
+  },
+  {
     id: 'data-binding',
     title: 'Data Binding',
     symbol: '↔',

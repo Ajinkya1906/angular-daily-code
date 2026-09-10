@@ -10,12 +10,31 @@ export const routes: Routes = [
     path: 'dashboard',
     loadComponent: () =>
       import('./layout/dashboard/dashboard').then(m => m.Dashboard),
+
     children: [
       {
         path: '',
         pathMatch: 'full',
         redirectTo: 'data-binding/interpolation',
       },
+
+      // Self Practice
+      {
+        path: 'self-practice/data-binding-practice',
+        loadComponent: () =>
+          import(
+            './topics/self-practice/data-binding-practice/data-binding-practice'
+          ).then(m => m.DataBindingPractice),
+      },
+      {
+        path: 'self-practice/directive-practice',
+        loadComponent: () =>
+          import(
+            './topics/self-practice/directive-practice/directive-practice'
+          ).then(m => m.DirectivePractice),
+      },
+
+      // Data Binding
       {
         path: 'data-binding/interpolation',
         loadComponent: () =>
@@ -30,20 +49,20 @@ export const routes: Routes = [
             m => m.PropertyBinding,
           ),
       },
-      { 
+      {
         path: 'data-binding/event-binding',
         loadComponent: () =>
-          import('./topics/data-binding/event-binding/event-binding').then( 
+          import('./topics/data-binding/event-binding/event-binding').then(
             m => m.EventBinding,
           ),
       },
-      {     
+      {
         path: 'data-binding/two-way-binding',
         loadComponent: () =>
           import('./topics/data-binding/two-way-binding/two-way-binding').then(
             m => m.TwoWayBinding,
-          ),  
-      }
+          ),
+      },
     ],
   },
   {
