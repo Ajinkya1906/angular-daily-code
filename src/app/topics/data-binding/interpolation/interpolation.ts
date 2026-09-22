@@ -7,7 +7,8 @@ import { Component, signal } from '@angular/core';
   styleUrl: './interpolation.css',
 })
 export class Interpolation {
-  name : string = 'Ajinkya';
-  course = 'Angular 20';
+ 
+  name : string = "Ajinkya";
+  disable : boolean = true;
 
 }

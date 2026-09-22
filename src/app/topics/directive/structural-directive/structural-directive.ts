@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class StructuralDirective {
 
+  num: number = 52;
+
+  countries: string[] = ['India', 'USA', 'UK', 'Canada', 'Australia'];
+
+  dayValue: number = 21;
 }

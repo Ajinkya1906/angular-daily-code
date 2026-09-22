@@ -7,13 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './property-binding.css',
 })
 export class PropertyBinding {
-  imageUrl = 'https://angular.dev/assets/images/press-kit/angular_icon_gradient.gif';
-  imageAlt = 'Angular Logo';
-
-  isButtonDisabled = false;
-
-  disableButton(): void {
-    this.isButtonDisabled = true;
-  }
+  disableButton : boolean = true;
 
 }

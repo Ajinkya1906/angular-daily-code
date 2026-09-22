@@ -7,16 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './event-binding.css',
 })
 export class EventBinding {
- count = 0;
-  message = 'Click the button.';
 
-  increaseCount(): void {
-    this.count = this.count + 1;
-    this.message = 'Count increased.';
-  }
-
-  resetCount(): void {
-    this.count = 0;
-    this.message = 'Count reset.';
+  onClick(){
+     alert("Button Clicked");
   }
 }

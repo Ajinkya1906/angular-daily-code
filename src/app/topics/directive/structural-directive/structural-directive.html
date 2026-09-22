@@ -1,1 +1,29 @@
 <p>structural-directive works!</p>
+
+
+@if(num %2 == 0){
+  <p>Even</p>
+}@else{
+  <p>Odd</p>
+}
+<hr>
+
+
+@for(country of countries; track country){
+   <p>{{country}}</p>
+}
+<hr>
+
+<h3>Switch</h3>
+@switch(dayValue){
+
+    @case(1){
+        <p>Monday</p>
+    }
+    @case(2){
+        <p>Tuesday</p>
+    }
+    @default {
+        <p>invalid day</p>
+    }
+}

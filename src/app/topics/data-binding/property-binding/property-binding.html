@@ -1,20 +1,4 @@
 <h2>Property Binding</h2>
 
-<img
-  [src]="imageUrl"
-  [alt]="imageAlt"
-  width="100"
-  height="100"
-/>
+<button [disabled]="disableButton">Click me</button>
 
-<br />
-<br />
-
-<button
-  [disabled]="isButtonDisabled"
-  (click)="disableButton()"
->
-  Disable Me
-</button>
-
-<p>Button disabled: {{ isButtonDisabled }}</p>

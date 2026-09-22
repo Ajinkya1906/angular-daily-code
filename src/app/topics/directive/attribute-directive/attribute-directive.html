@@ -1,1 +1,35 @@
 <p>attribute-directive works!</p>
+
+<h1>ngStyle</h1>
+@for(employee of employees; track employee.id) {
+   <div
+     [style.color]= "employee.id > 3 ? 'red' : 'pink'"
+   >
+    ID : {{employee.id}}  ---------- Name: {{employee.name}}
+   </div>
+}
+<hr>
+
+<h1>ngClass</h1>
+@for(employee of employees; track employee.id) {
+   <div
+     [class.primary-style]= "employee.id > 3 ? true : false"
+   >
+    ID : {{employee.id}}  ---------- Name: {{employee.name}}
+   </div>
+}
+<hr>
+
+@for(employee of employees; track employee.id) {
+   <div
+     [class.bg-danger]= "employee.id > 3 ? true : false"
+   >
+    ID : {{employee.id}}  ---------- Name: {{employee.name}}
+   </div>
+}
+<hr>
+
+
+<h1>4.hidden</h1>
+<div [hidden]="isElementHidden">hide this div on condition</div>
+
