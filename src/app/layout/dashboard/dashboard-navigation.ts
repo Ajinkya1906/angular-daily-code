@@ -56,4 +56,43 @@ export const DASHBOARD_TOPICS: readonly Topic[] = [
       },
     ],
   },
+  {
+  id: 'directive',
+  title: 'Directive',
+  symbol: '⚙',
+  lessons: [
+    {
+      id: 'attribute-directive',
+      title: 'Attribute Directive',
+      route: '/dashboard/directive/attribute-directive',
+    },
+    {
+      id: 'structural-directive',
+      title: 'Structural Directive',
+      route: '/dashboard/directive/structural-directive',
+    },
+    {
+      id: 'custom-directive',
+      title: 'Custom Directive',
+      route: '/dashboard/directive/custom-directive',
+    },
+  ],
+},
+  {
+  id: 'pipe',
+  title: 'Pipe',
+  symbol: '|',
+  lessons: [
+    {
+      id: 'built-in-pipe',
+      title: 'Built-in Pipe',
+      route: '/dashboard/pipe/built-in-pipe',
+    },
+    {
+      id: 'custom-pipe',
+      title: 'Custom Pipe',
+      route: '/dashboard/pipe/custom-pipe',
+    },
+  ],
+},
 ];
