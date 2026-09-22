@@ -63,6 +63,22 @@ export const routes: Routes = [
             m => m.TwoWayBinding,
           ),
       },
+
+       {
+        path: 'directive/structural-directive',
+        loadComponent: () =>
+          import('./topics/directive/structural-directive/structural-directive').then(
+            m => m.StructuralDirective,
+          ),
+      },
+
+      {
+        path: 'directive/attribute-directive',
+        loadComponent: () =>
+          import('./topics/directive/attribute-directive/attribute-directive').then(
+            m => m.AttributeDirective,
+          ),
+      },
     ],
   },
   {
