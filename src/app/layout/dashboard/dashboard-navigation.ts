@@ -78,21 +78,80 @@ export const DASHBOARD_TOPICS: readonly Topic[] = [
     },
   ],
 },
+   {
+    id: 'pipe',
+    title: 'Pipe',
+    symbol: '|',
+    lessons: [
+      {
+        id: 'built-in-pipe',
+        title: 'Built-in Pipe',
+        route: '/dashboard/pipe/built-in-pipe',
+      },
+      {
+        id: 'custom-pipe',
+        title: 'Custom Pipe',
+        route: '/dashboard/pipe/custom-pipe',
+      },
+    ],
+  },
+
   {
-  id: 'pipe',
-  title: 'Pipe',
-  symbol: '|',
-  lessons: [
-    {
-      id: 'built-in-pipe',
-      title: 'Built-in Pipe',
-      route: '/dashboard/pipe/built-in-pipe',
-    },
-    {
-      id: 'custom-pipe',
-      title: 'Custom Pipe',
-      route: '/dashboard/pipe/custom-pipe',
-    },
-  ],
-},
+    id: 'parent-child',
+    title: 'Parent Child',
+    symbol: '⇄',
+    lessons: [
+      {
+        id: 'parent-child',
+        title: 'Parent Child',
+        route: '/dashboard/parent-child',
+      },
+    ],
+  },
+
+  {
+    id: 'reactive-form',
+    title: 'Reactive Form',
+    symbol: '▣',
+    lessons: [
+      {
+        id: 'reactive-form-1',
+        title: 'Reactive Form 1',
+        route: '/dashboard/reactive-form/reactive-form-1',
+      },
+      {
+        id: 'reactive-form-2',
+        title: 'Reactive Form 2',
+        route: '/dashboard/reactive-form/reactive-form-2',
+      },
+      {
+        id: 'reactive-form-3',
+        title: 'Reactive Form 3',
+        route: '/dashboard/reactive-form/reactive-form-3',
+      },
+    ],
+  },
+
+  {
+    id: 'template-driven-form',
+    title: 'Template Driven Form',
+    symbol: '▤',
+    lessons: [
+      {
+        id: 'template-driven-form-1',
+        title: 'Template Driven Form 1',
+        route: '/dashboard/template-driven-form/template-driven-form-1',
+      },
+      {
+        id: 'template-driven-form-2',
+        title: 'Template Driven Form 2',
+        route: '/dashboard/template-driven-form/template-driven-form-2',
+      },
+      {
+        id: 'template-driven-form-3',
+        title: 'Template Driven Form 3',
+        route: '/dashboard/template-driven-form/template-driven-form-3',
+      },
+    ],
+  },
 ];

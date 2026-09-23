@@ -79,6 +79,14 @@ export const routes: Routes = [
             m => m.AttributeDirective,
           ),
       },
+
+      {
+        path: 'directive/custom-directive',
+        loadComponent: () =>
+          import('./topics/directive/custom-directive/custom-directive').then(
+            m => m.CustomDirective,
+          ),  
+      }
     ],
   },
   {
