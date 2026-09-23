@@ -86,6 +86,27 @@ export const routes: Routes = [
           import('./topics/directive/custom-directive/custom-directive').then(
             m => m.CustomDirective,
           ),  
+      },
+      {
+        path : 'pipe/built-in-pipe',
+        loadComponent: () =>
+          import('./topics/pipe/builtin-pipe/builtin-pipe').then(
+            m => m.BuiltinPipe,   
+          ),
+      },
+      {
+        path : 'pipe/custom-pipe',
+        loadComponent: () =>
+          import('./topics/pipe/custom-pipe/custom-pipe').then(
+            m => m.CustomPipe,   
+          ),
+      },
+      {
+        path : 'parent-child',
+        loadComponent: () =>
+          import('./topics/parent-child/parent/parent').then(
+            m => m.Parent,   
+          ),
       }
     ],
   },
