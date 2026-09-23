@@ -1,1 +1,58 @@
-<p>builtin-pipe works!</p>
+<!-- <h1>Builtin Pipes</h1>
+<hr>
+<p>{{'Ajinkya' | uppercase}}</p>
+<p>{{'AJINKYA' | lowercase}}</p>
+<p>{{'Ajinkya' | titlecase}}</p>
+<hr>
+
+<h3>Date Pipe</h3>
+<p>{{CurrentDate}}</p>
+<p>{{CurrentDate | date : 'full'}}</p>
+<p>{{CurrentDate | date : 'short'}}</p>
+<p>{{CurrentDate | date : 'medium'}}</p>
+<p>{{CurrentDate | date : 'dd MMM yyyy' }}</p>
+<hr> -->
+
+<h3>Number Pipe</h3>
+<p>{{decimalValue}}</p>
+<p>{{decimalValue | number : '1.1-2'}}</p>
+<p>{{percentage | percent : '1.2-3'}}</p>
+<!-- 80  = 80.00% -->
+<p>{{currency | currency : 'USD'}}</p>
+<hr>
+
+<!-- <h3>Slice Pipe</h3>
+<p>{{'Ajinkya' | slice : 0 : 3}}</p>
+<p>{{fruits | slice : 1 : 4}}</p>
+<p>use -2 : {{fruits | slice : -25}}</p>
+<hr> -->
+
+<h3>Json Pipe</h3>
+<p>{{fruits | json}}</p>
+<p>{{myObject | json}}</p>
+<hr>
+
+
+<h3>Key Value Pipe</h3>
+<!-- <li @for(mySetting of setting; track mySetting | keyvalue)>
+  
+</li> -->
+
+<!-- @for(mySetting of setting; | keyvalue){
+<p >
+{{mySetting.theme}}  --- {{mySetting.language}}
+</p>
+} -->
+
+@for (mySetting of setting; track $index) {
+
+  @for (item of mySetting | keyvalue; track item.key) {
+    <p>
+      {{ item.key }} --- {{ item.value }}
+    </p>
+  }
+
+  <!-- Note: Above code need to cross check and use best approach -->
+
+
+}

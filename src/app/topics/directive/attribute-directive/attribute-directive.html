@@ -1,5 +1,6 @@
 <p>attribute-directive works!</p>
 
+<!-- Css classes -->
 <h1>ngStyle</h1>
 @for(employee of employees; track employee.id) {
    <div
@@ -10,16 +11,19 @@
 }
 <hr>
 
+<!-- Own created classes -->
 <h1>ngClass</h1>
 @for(employee of employees; track employee.id) {
    <div
-     [class.primary-style]= "employee.id > 3 ? true : false"
+     [class.myStyle]= "employee.id > 3 ? true : false"
    >
     ID : {{employee.id}}  ---------- Name: {{employee.name}}
    </div>
 }
 <hr>
 
+
+<!-- Bootstrap Classes -->
 @for(employee of employees; track employee.id) {
    <div
      [class.bg-danger]= "employee.id > 3 ? true : false"
