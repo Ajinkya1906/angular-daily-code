@@ -26,16 +26,15 @@ export class BuiltinPipe {
     }
   }
 
-  setting = [{
-    theme : 'dark',
-    language : 'en'  
-  },
-{
-    theme : 'dark',
-    language : 'en'  
-  },
-  {
-    theme : 'dark',
-    language : 'en'  
-  }]
+ setting = [
+  { theme: 'dark1', language: 'en' },
+  { theme: 'dark2', language: 'en' },
+  { theme: 'dark3', language: 'en' }
+];
+
+
+mySetting = {
+  theme: 'dark',
+  language: 'en'
+};
 }

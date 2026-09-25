@@ -34,25 +34,40 @@
 
 
 <h3>Key Value Pipe</h3>
-<!-- <li @for(mySetting of setting; track mySetting | keyvalue)>
+<!-- Here, track $index tells Angular how to identify each item in the array
+  while rendering the @for loop.
+ $index → current array index: 0, 1, 2, etc.
   
-</li> -->
-
-<!-- @for(mySetting of setting; | keyvalue){
-<p >
-{{mySetting.theme}}  --- {{mySetting.language}}
-</p>
-} -->
-
+ Why do we need track?
+Angular needs a way to efficiently determine which DOM element belongs to which item when the array changes.
+ 
+But if objects have a unique ID
+setting = [
+  { id: 1, theme: 'dark', language: 'en' },
+];
+@for (mySetting of setting; track mySetting.id) 
+-->
 @for (mySetting of setting; track $index) {
+  <p>
+    Theme --- {{ mySetting.theme }}
+  </p>
 
-  @for (item of mySetting | keyvalue; track item.key) {
-    <p>
-      {{ item.key }} --- {{ item.value }}
-    </p>
-  }
-
-  <!-- Note: Above code need to cross check and use best approach -->
-
-
+  <p>
+    Language --- {{ mySetting.language }}
+  </p>
 }
+<hr><hr>
+
+<!-- IMP: keyvalue loops through the properties of ONE object -->
+ @for (setting of mySetting | keyvalue; track setting.key) {
+  <p>
+    {{ setting.key }} --- {{ setting.value }}
+  </p>
+}
+
+<hr>
+<h2>7. Async Pipe</h2>
+<!-- we use with RxJS Observable, get latest emitted value 
+ automatically unsubscribe when component is destroyed. -->
+
+ 
