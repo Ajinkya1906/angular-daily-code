@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-directive-practice',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './directive-practice.css',
 })
 export class DirectivePractice {
-
+ 
+ 
 }

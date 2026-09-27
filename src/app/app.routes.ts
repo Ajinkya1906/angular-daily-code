@@ -34,7 +34,7 @@ export const routes: Routes = [
           ).then(m => m.DirectivePractice),
       },
 
-      // Data Binding
+      // For Online Class.
       {
         path: 'data-binding/interpolation',
         loadComponent: () =>
@@ -71,7 +71,6 @@ export const routes: Routes = [
             m => m.StructuralDirective,
           ),
       },
-
       {
         path: 'directive/attribute-directive',
         loadComponent: () =>
@@ -79,7 +78,6 @@ export const routes: Routes = [
             m => m.AttributeDirective,
           ),
       },
-
       {
         path: 'directive/custom-directive',
         loadComponent: () =>
@@ -107,7 +105,81 @@ export const routes: Routes = [
           import('./topics/parent-child/parent/parent').then(
             m => m.Parent,   
           ),
-      }
+      },
+
+
+      //Personal Practice by Ajinkya Sakharkar
+     {
+        path : 'practice-avs/practice-1',
+        loadComponent: () =>
+          import('./topics/practise-avs/practice1/practice1').then(
+            m => m.Practice1,   
+          ),
+      },
+      {
+        path : 'practice-avs/practice-2',
+        loadComponent: () =>
+          import('./topics/practise-avs/practice2/practice2').then(
+            m => m.Practice2,   
+          ),
+      },
+       {
+        path : 'practice-avs/practice-3',
+        loadComponent: () =>
+          import('./topics/practise-avs/practice3/practice3').then(
+            m => m.Practice3,   
+          ),
+      },
+
+       {
+        path : 'practice-avs/practice-4',
+        loadComponent: () =>
+          import('./topics/practise-avs/practice4/practice4').then(
+            m => m.Practice4,   
+          ),
+      },
+       {
+        path : 'practice-avs/practice-5',
+        loadComponent: () =>
+          import('./topics/practise-avs/practice5/practice5').then(
+            m => m.Practice5,   
+          ),
+      },
+       {
+        path : 'practice-avs/practice-6',
+        loadComponent: () =>
+          import('./topics/practise-avs/practice6/practice6').then(
+            m => m.Practice6,   
+          ),
+      },
+       {
+        path : 'practice-avs/practice-7',
+        loadComponent: () =>
+          import('./topics/practise-avs/practice7/practice7').then(
+            m => m.Practice7,   
+          ),
+      },
+       {
+        path : 'practice-avs/practice-8',
+        loadComponent: () =>
+          import('./topics/practise-avs/practice8/practice8').then(
+            m => m.Practice8,   
+          ),
+      },
+       {
+        path : 'practice-avs/practice-9',
+        loadComponent: () =>
+          import('./topics/practise-avs/practice9/practice9').then(
+            m => m.Practice9,   
+          ),
+      },
+       {
+        path : 'practice-avs/practice-10',
+        loadComponent: () =>
+          import('./topics/practise-avs/practice10/practice10').then(
+            m => m.Practice10,   
+          ),
+      },
     ],
   },
   {

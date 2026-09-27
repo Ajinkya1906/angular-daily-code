@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './data-binding-practice.css',
 })
 export class DataBindingPractice {
+   
+  
+} 
 
-}
+ 

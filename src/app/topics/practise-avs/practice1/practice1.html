@@ -1,0 +1,58 @@
+<h2>Reactive Form 1</h2>
+<hr>
+
+
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+   <label>First Name:</label>
+<input type="text" formControlName="firstName">
+
+@if( registrationForm.get('firstName')?.hasError('required') && registrationForm.get('firstName')?.touched ){
+  <p style="color: red;">First Name is Required.</p>
+}@else if( registrationForm.get('firstName')?.hasError('minlength') && registrationForm.get('firstName')?.touched){
+   <p style="color:red;">Minimum length should be 3 character.</p>
+}
+<br><br>
+
+<label>Last Name:</label>
+<input type="text" formControlName="lastName">
+
+@if( registrationForm.get('lastName')?.hasError('required') && registrationForm.get('lastName')?.touched){
+    <p style="color:red;">Last Name is Required.</p>
+}
+<br><br>
+
+<label>Email</label>
+<input type="email" formControlName="email" placeholder="Enter email">
+
+@if( registrationForm.get('email')?.hasError('required') && registrationForm.get('email')?.touched){
+ <p>Email is Required.</p>
+}@else if( registrationForm.get('email')?.hasError('email') && registrationForm.get('email')?.touched){
+  <p>Enter email format only.</p>
+}
+<br>
+<br>
+
+
+<div formGroupName="address">
+ <label>City</label>
+    <input type="text" formControlName="city">
+<br><br>
+ 
+    <label>State</label>
+<input type="text" formControlName="state">
+<br><br>
+
+<label>Pin Code</label>
+<input type="text" formControlName="pin">
+
+@if( registrationForm.get('address.pin')?.hasError('required') && registrationForm.get('address.pin')?.touched){
+   <p>Pin is required.</p>
+}@else if( registrationForm.get('address.pin')?.hasError('pattern') && registrationForm.get('address.pin')?.touched){
+   <p>Pin should be 6 digits.</p>
+}
+</div>
+
+
+<br>
+  <button type="submit">Submit</button>  
+</form>
