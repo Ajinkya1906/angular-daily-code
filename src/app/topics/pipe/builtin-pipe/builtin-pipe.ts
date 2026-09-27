@@ -37,4 +37,20 @@ mySetting = {
   theme: 'dark',
   language: 'en'
 };
+
+
+
+userSettings = [
+  {
+    theme: 'dark',
+    language: 'en'
+  },
+  {
+    theme: 'light',
+    language: 'fr'
+  }
+];
 }
+
+
+

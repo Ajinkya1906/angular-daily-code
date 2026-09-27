@@ -64,7 +64,18 @@ setting = [
     {{ setting.key }} --- {{ setting.value }}
   </p>
 }
+<hr>
+<h2>For Array of object:</h2>
+<!-- The first loop: accesses each object.
+The second loop: accesses the properties of that object. -->
 
+@for (setting of userSettings; track $index) {
+  @for (item of setting | keyvalue; track item.key) {
+    <p>
+      {{ item.key }} --- {{ item.value }}
+    </p>
+  }
+}
 <hr>
 <h2>7. Async Pipe</h2>
 <!-- we use with RxJS Observable, get latest emitted value 
