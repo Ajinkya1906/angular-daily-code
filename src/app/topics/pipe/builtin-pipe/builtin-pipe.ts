@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { interval, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-builtin-pipe',
@@ -50,6 +51,18 @@ userSettings = [
     language: 'fr'
   }
 ];
+
+
+currentTime$: Observable<string> = interval(1000).pipe( 
+  map(() => new Date().toLocaleTimeString()) 
+);
+// "$ is a naming convention used to indicate that a variable is an Observable. It is not mandatory."
+
+// currentTime : Observable<string> = interval(1000).pipe(
+//    map(() => new Date().toLocaleTimeString())
+// );
+
+
 }
 
 

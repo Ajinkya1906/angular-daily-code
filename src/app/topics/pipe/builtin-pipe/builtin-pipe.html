@@ -79,6 +79,16 @@ The second loop: accesses the properties of that object. -->
 <hr>
 <h2>7. Async Pipe</h2>
 <!-- we use with RxJS Observable, get latest emitted value 
- automatically unsubscribe when component is destroyed. -->
+ automatically unsubscribe when component is destroyed. 
+ Common project uses:
 
+🌐 API data — users, products, orders
+🔐 Logged-in user/auth state
+🔔 Notifications
+🔍 Search/autocomplete results
+📡 Real-time/WebSocket data
+⏳ Loading state
+Most common: API data and application state.
  
+ -->
+ <p> Current Time: {{ currentTime$ | async }} </p>
