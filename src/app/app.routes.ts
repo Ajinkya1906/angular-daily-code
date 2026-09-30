@@ -64,7 +64,7 @@ export const routes: Routes = [
           ),
       },
 
-       {
+      {
         path: 'directive/structural-directive',
         loadComponent: () =>
           import('./topics/directive/structural-directive/structural-directive').then(
