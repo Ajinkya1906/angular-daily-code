@@ -6,8 +6,8 @@ import {
   RouterOutlet,
 } from '@angular/router';
 
-import { DASHBOARD_TOPICS } from './dashboard-navigation';
-import type { Lesson, Topic } from './dashboard-navigation';
+import { DASHBOARD_TOPICS } from '../navigation/dashboard-navigation';
+import type { Lesson, Topic } from '../navigation/dashboard-navigation';
 import { Theme } from '../../core/theme/theme';
 
 @Component({
