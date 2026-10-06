@@ -274,17 +274,17 @@ export const DASHBOARD_TOPICS: readonly Topic[] = [
       {
         id: 'reactive-form-1',
         title: 'Reactive Form 1',
-        route: '/dashboard/reactive-form/reactive-form-1',
+        route: '/dashboard/reactive-form/reactive-form1',
       },
       {
         id: 'reactive-form-2',
         title: 'Reactive Form 2',
-        route: '/dashboard/reactive-form/reactive-form-2',
+        route: '/dashboard/reactive-form/reactive-form2',
       },
       {
         id: 'reactive-form-3',
         title: 'Reactive Form 3',
-        route: '/dashboard/reactive-form/reactive-form-3',
+        route: '/dashboard/reactive-form/reactive-form3',
       },
     ],
   },

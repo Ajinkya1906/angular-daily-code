@@ -106,6 +106,23 @@ export const routes: Routes = [
             m => m.Parent,   
           ),
       },
+{
+   path : 'reactive-form/reactive-form1',
+   loadComponent: () =>
+     import('./topics/reactive-form/reactive-form1/reactive-form1').then(
+       m => m.ReactiveForm1
+     ), 
+},
+
+{
+   path : 'reactive-form/reactive-form2',
+   loadComponent: () =>
+     import('./topics/reactive-form/reactive-form2/reactive-form2').then(
+       m => m.ReactiveForm2
+     ), 
+},
+
+
 
 
  // Practice AVS Routes
