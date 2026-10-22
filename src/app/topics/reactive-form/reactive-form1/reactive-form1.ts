@@ -9,24 +9,32 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class ReactiveForm1 {
  
-  registerForm = new FormGroup({
-     firstName : new FormControl('',
-             [Validators.required,Validators.minLength(2)]),
-     lastName : new FormControl(''),
+ registerForm = new FormGroup({
+    firstName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(2)
+    ]),
 
-     address : new FormGroup({
-        city : new FormControl(''),
-        state : new FormControl(''),
-        pin : new FormControl('',
-          [Validators.required,
-             Validators.pattern('^[0-9]{6}$'),],
-          )
-     })
+    lastName: new FormControl(''),
+
+    address: new FormGroup({
+      city: new FormControl(''),
+      state: new FormControl(''),
+
+      pin: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]{6}$')
+      ])
+    })
   });
 
+  onSubmit() {
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
 
-
- onSubmit(){
-     console.log(this.registerForm);
+    console.log(this.registerForm.value);
   }
+ 
 }

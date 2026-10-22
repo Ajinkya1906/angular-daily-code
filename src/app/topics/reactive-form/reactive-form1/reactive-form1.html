@@ -3,67 +3,88 @@
 
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-<!-- First Name -->
-<label>First Name:</label>
-<input
-  type="text"
-  formControlName="firstName"
-  placeholder="Enter First Name"
->
+  <!-- First Name -->
+  <label>First Name:</label>
+  <input
+    type="text"
+    formControlName="firstName"
+    placeholder="Enter First Name"
+  >
 
-@if (registerForm.get('firstName')?.hasError('required')
-    && registerForm.get('firstName')?.touched) {
-  <span>First Name is required.</span>
-}
+  @if (registerForm.get('firstName')?.hasError('required')
+      && registerForm.get('firstName')?.touched) {
+    <span style="display: block; color: red;">
+      First Name is required.
+    </span>
+  }
 
-@if(registerForm.get('firstName')?.hasError('minLength')
-   && registerForm.get('firstName')?.touched){
-  <span>Min length is 2.</span>
-}
+  @if (registerForm.get('firstName')?.hasError('minlength')
+      && registerForm.get('firstName')?.touched) {
+    <span style="display: block; color: red;">
+      Minimum length is 2.
+    </span>
+  }
 
+  <br><br>
+  <!-- Last Name -->
+  <label>Last Name:</label>
+  <input
+    type="text"
+    formControlName="lastName"
+    placeholder="Enter Last Name"
+  >
 
-<br><br>
-<!-- Last Name -->
-<label>Last Name:</label>
-<input type="text" formControlName="lastName" placeholder="Enter Last Name">
+  <!-- Address -->
+   <br><br>
+  <fieldset formGroupName="address">
+    <legend>Address Info:</legend>
 
-
-<!-- Address -->
-<fieldset formGroupName = "address">
-   <legend>Address Info:</legend>
-   <div>
-     <label>City:</label>
-     <input type="text" formControlName="city" placeholder="Enter City">
-   </div>
-
-
-
-   <div>
-     <label>State:</label>
-     <input type="text" formControlName="state" placeholder="Enter State">
-   </div>
-   
-   <div>
-     <label>Pin:</label>
-     <input type="text" formControlName="pin" placeholder="Enter Pin">
-    
-     <br>
-    @if(registerForm.get('address.pin')?.hasError('required')
-     && registerForm.get('address.pin')?.touched){
-    <span style="color: red;">Pin is Required.</span>
-   
-    }
-    
-    
-@if(registerForm.get('address.pin')?.hasError('pattern')
-   && registerForm.get('address.pin')?.touched){
-  <span>Pin must be a 6-digit number.</span>
-}
+    <div>
+      <label>City:</label>
+      <input
+        type="text"
+        formControlName="city"
+        placeholder="Enter City"
+      >
     </div>
 
-</fieldset>
+    <br>
+    <div>
+      <label>State:</label>
+      <input
+        type="text"
+        formControlName="state"
+        placeholder="Enter State"
+      >
+    </div>
 
-<br>
-<button type="submit">Submit</button>
+    <br>
+    <div>
+      <label>Pin:</label>
+      <input
+        type="text"
+        formControlName="pin"
+        placeholder="Enter Pin"
+      >
+
+      @if (registerForm.get('address.pin')?.hasError('required')
+          && registerForm.get('address.pin')?.touched) {
+        <span style="display: block; color: red;">
+          Pin is required.
+        </span>
+      }
+
+      @if (registerForm.get('address.pin')?.hasError('pattern')
+          && registerForm.get('address.pin')?.touched) {
+        <span style="display: block; color: red;">
+          Pin must be a 6-digit number.
+        </span>
+      }
+    </div>
+  </fieldset>
+
+  <br>
+
+  <button type="submit">Submit</button>
 
 </form>
